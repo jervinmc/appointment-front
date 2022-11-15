@@ -16,6 +16,33 @@
                 ></v-text-field>
               </div>
             </v-col>
+             <v-col cols="12">
+              <div>Office Name</div>
+              <div>
+                <v-select
+                  :rules="standardRules"
+                  outlined
+                  dense
+                  :items="office_data"
+                  item-text="office_name"
+                  item-value="office_name"
+                  v-model="register.office_name"
+                ></v-select>
+              </div>
+            </v-col>
+            <v-col cols="12">
+              <div>Description</div>
+              <div>
+                <v-textarea
+                  :rules="standardRules"
+                  outlined
+                  dense
+                  item-text="office_name"
+                  item-value="office_name"
+                  v-model="register.description"
+                ></v-textarea>
+              </div>
+            </v-col>
             <v-col cols="12">
               <div>
                 Date Appointment
@@ -81,6 +108,7 @@ import validations from "@/utils/validations";
 export default {
   computed: {
     ...mapState("users", ["user_residents"]),
+    ...mapState("office", ["office_data"]),
     // residents(){
     //   return this.users.filter(data=>data.account_type=='Resident')
     // }
@@ -124,7 +152,9 @@ export default {
       // },
     };
   },
-  created() {},
+  created() {
+    this.$store.dispatch('office/view')
+  },
   methods: {
     cancel() {
       this.$emit("cancel");
@@ -135,11 +165,12 @@ export default {
         this.register.user_id = this.$auth.user.id
         await this.$store.dispatch("appointment/add", this.register);
         this.$toastr.s("SUCCESS MESSAGE", "Successfully Added!");
+        location.reload()
         this.$emit("cancel");
       } catch (error) {
         alert(error);
       }
-      this.isLoaded = false;
+      this.isLoaded = false;  
     },
     selectRegister() {
       if (this.isRegister) this.isRegister = false;

@@ -47,7 +47,7 @@
       <div align="start">
         <v-img
           class="pointer"
-          src="/logo.jpeg"
+          src="/images/logo.jpeg"
           height="50"
           width="100"
           contain
@@ -86,7 +86,7 @@
       >
         Login
       </div>
-      <div
+      <!-- <div
         :class="
           $route.name == 'client-profile'
             ? 'px-10 pointer secondary--text'
@@ -96,7 +96,7 @@
         v-else
       >
         My Profile
-      </div>
+      </div> -->
       <!-- <div class="mx-5" v-if="$auth.loggedIn">
          <v-badge
           color="secondary"
@@ -193,6 +193,11 @@ export default {
           icon: "mdi-chart-bubble",
           title: "Appointment",
           to: "/admin/appointment",
+        },
+        {
+          icon: "mdi-chart-bubble",
+          title: "Office",
+          to: "/admin/office",
         },
       ],
       miniVariant: false,

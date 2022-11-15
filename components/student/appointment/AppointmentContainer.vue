@@ -1,7 +1,8 @@
 <template>
   <div class="pa-10">
     <v-dialog v-model="addForm" width="500">
-      <add @cancel="cancelForm" />
+      <add @cancel="addForm=false"
+       />
     </v-dialog>
     <v-dialog v-model="editForm">
       <edit
@@ -87,11 +88,12 @@ export default {
       headers: [
         { text: "ID", value: "id" },
         { text: "Fullname", value: "fullname" },
+        { text: "Description", value: "description" },
         { text: "Date", value: "date_appointment" },
         { text: "Actions", value: "opt" },
         ,
       ],
-    };
+    }
   },
 };
 </script>

@@ -13,7 +13,7 @@
         <v-col cols="6">
           <v-card width="600" class="rounded-xl">
             <div
-              style="background-color: #ef5777; color: white"
+              style="background-color: #116736; color: white"
               align="start"
               class="pa-5"
             >
@@ -60,7 +60,7 @@
         <v-col cols="6">
           <div align="center">
             <v-img
-              src="/images/loginVector.jpg"
+              src="/images/background.jpeg"
               height="400"
               width="600"
             ></v-img>
