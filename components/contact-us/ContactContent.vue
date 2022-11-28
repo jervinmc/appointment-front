@@ -3,19 +3,19 @@
     <v-row class="px-16 py-10">
         <v-col>
             <div class="text-h4 secondary--text" align="center">
-                HEAD OFFICE
+                Lorem ipsum
             </div>
             <div class="pt-10">
-                Archipelago Philippine Ferries Corporation
+                 Lorem ipsum
             </div>
             <div class="pt-2">
-                6th Floor Unioil Center Bldg., Commerce Avenue corner
+               Lorem ipsum
             </div>
             <div class="pt-2">
-                Acacia Avenue, Madrigal Business Park, Ayala Alabang,
+              Lorem ipsum
             </div>
             <div class="pt-2">
-                Muntinlupa City, 1780
+              Lorem ipsum
             </div>
         </v-col>
         <v-col>

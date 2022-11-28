@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
     <v-navigation-drawer
-      v-if="$route.name!='index' && $route.name!='login' && $route.name!='register'"
+      v-if="$route.name!='index' && $route.name!='login' && $route.name!='register' && $route.name!='contact'"
       v-model="drawer"
       :mini-variant="miniVariant"
       :clipped="clipped"
@@ -64,6 +64,16 @@
         @click="pushRoute('contact')"
       >
         Contact Us
+      </div>
+      <div
+        :class="
+          $route.name == 'profile'
+            ? 'px-10 pointer secondary--text'
+            : 'px-10 pointer'
+        "
+        @click="pushRoute('profile')"
+      >
+        My Profile
       </div>
       <!-- <div
         :class="
@@ -174,8 +184,13 @@ export default {
       items: [
         {
           icon: "mdi-apps",
-          title: "Dashboard",
+          title: "Reports",
           to: "/student/dashboard",
+        },
+         {
+          icon: "mdi-chart-bubble",
+          title: "Clock In",
+          to: "/student/time",
         },
         {
           icon: "mdi-chart-bubble",
@@ -189,6 +204,11 @@ export default {
           title: "Dashboard",
           to: "/admin/dashboard",
         },
+         {
+          icon: "mdi-chart-bubble",
+          title: "User Management",
+          to: "/admin/users",
+        },
         {
           icon: "mdi-chart-bubble",
           title: "Appointment",
@@ -198,6 +218,11 @@ export default {
           icon: "mdi-chart-bubble",
           title: "Office",
           to: "/admin/office",
+        },
+        {
+          icon: "mdi-apps",
+          title: "Logs",
+          to: "/admin/logs",
         },
       ],
       miniVariant: false,

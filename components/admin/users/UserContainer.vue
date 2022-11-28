@@ -4,7 +4,7 @@
         <v-row>
             <v-col>
                 <div class="text-h5">
-                    <b>Appointment Schedule List</b>
+                    <b>User Management</b>
                 </div>
             </v-col>
         </v-row>
@@ -12,7 +12,7 @@
     <v-data-table
       class="pa-5"
       :headers="headers"
-      :items="appointment_data"
+      :items="users"
       :search="search"
       :loading="isLoading"
     >
@@ -63,18 +63,20 @@ export default {
 
   },
   computed:{
-    ...mapState('appointment',['appointment_data'])
+    ...mapState('users',['users'])
   },
   created(){
-    this.$store.dispatch('appointment/view')
+    this.$store.dispatch('users/view')
   },
   data() {
     return {
       headers: [
         { text: "ID", value: "id" },
-        { text: "Fullname", value: "fullname" },
-        { text: "Date", value: "date_appointment" },
-        { text: "Actions", value: "opt" },
+        { text: "Firstname", value: "firstname" },
+        { text: "Lastname", value: "lastname" },
+        { text: "User Type", value: "account_type" },
+        // { text: "Date", value: "date_appointment" },
+        // { text: "Actions", value: "opt" },
         ,
       ],
     };

@@ -4,7 +4,7 @@
         <v-row>
             <v-col>
                 <div class="text-h5">
-                    <b>Appointment Schedule List</b>
+                    <b>Logs</b>
                 </div>
             </v-col>
         </v-row>
@@ -12,7 +12,7 @@
     <v-data-table
       class="pa-5"
       :headers="headers"
-      :items="appointment_data"
+      :items="logs_data"
       :search="search"
       :loading="isLoading"
     >
@@ -24,9 +24,9 @@
           class="my-2"
         ></v-skeleton-loader>
       </template>
-       <template #[`item.date_appointment`]="{ item }">
-        {{formatDate(item.date_appointment)}}
-       </template>
+      <template #[`item.time`]="{ item }">
+        {{formatDate(item.time)}}
+      </template>
       <template #[`item.opt`]="{ item }">
         <v-menu offset-y z-index="1">
           <template v-slot:activator="{ attrs, on }">
@@ -53,27 +53,27 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex';
 import moment from "moment";
+import {mapState, mapActions} from 'vuex';
 export default {
+  computed:{
+    ...mapState('logs',['logs_data'])
+  },
+  created(){
+    this.$store.dispatch('logs/view')
+  },
   methods:{
     formatDate(val) {
       return moment(String(val)).format("YYYY-MM-DD hh:mm");
     },
-
   },
-  computed:{
-    ...mapState('appointment',['appointment_data'])
-  },
-  created(){
-    this.$store.dispatch('appointment/view')
-  },
-  data() {
+  data(){
     return {
       headers: [
         { text: "ID", value: "id" },
-        { text: "Fullname", value: "fullname" },
-        { text: "Date", value: "date_appointment" },
+        { text: "Type", value: "time_type" },
+        { text: "Time", value: "time" },
+        { text: "User ID", value: "user_id" },
         { text: "Actions", value: "opt" },
         ,
       ],
